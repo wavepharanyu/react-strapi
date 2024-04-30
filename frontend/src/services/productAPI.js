@@ -5,6 +5,12 @@ const getAllProduct = () => {
     return http.get('/products?populate=*')
 }
 
+//Method Read All Category
+const getAllCategory = () => {
+    return http.get('/categories')
+}
+
+
 //Method Read By ID
 const getProductById = (id) => {
     return http.get(`/products/${id}?populate=*`);
@@ -27,6 +33,7 @@ const deleteProduct = (id) => {
 
 export default {
     getAllProduct,
+    getAllCategory,
     getProductById,
     addNewProduct,
     updateProduct,

@@ -6,6 +6,7 @@ import { NumericFormat }  from 'react-number-format'
 import dayjs from 'dayjs'
 import thai from 'dayjs/locale/th'
 import relativeTime from 'dayjs/plugin/relativeTime'
+import { NavLink } from "react-router-dom"
 dayjs.extend(relativeTime)
 
 dayjs.locale(thai)
@@ -39,7 +40,7 @@ const ProductList = () => {
       <div className="flex my-6">
           <h1 className="text-2xl text-black pb-6">Product List</h1>
           <p className="flex-1 text-right">
-            <a href="#" className="border-green-500 border-2 rounded-sm px-2 py-1 mb-2 hover:text-white hover:bg-green-500 text-xl">+ เพิ่มรายการ</a>
+            <NavLink to="/addproduct" className="border-green-500 border-2 rounded-sm px-2 py-1 mb-2 text-green-500 text-xl">+ เพิ่มรายการ</NavLink>
           </p>
       </div>
       
@@ -85,7 +86,7 @@ const ProductList = () => {
                             product.attributes.image ?
                             <img
                                 className="h-10 w-10 rounded-full"
-                                src={ `${baseURL}${product.attributes.image.data[0].attributes.formats.thumbnail.url}` }
+                                src={ `${baseURL}${product.attributes.image.data.attributes.formats.thumbnail.url}` }
                                 alt=""
                             />
                             :
@@ -100,9 +101,9 @@ const ProductList = () => {
                           <div className="text-sm font-medium text-gray-900">
                             {product.attributes.title && product.attributes.title.substring(0, 24)} ..
                           </div>
-                          {/* <div className="text-sm text-gray-500">
-                            {product.description && product.description.substring(0, 24)} ..
-                          </div> */}
+                          <div className="text-sm text-gray-500">
+                            {product.attributes.description && product.attributes.description[0].children[0].text.substring(0, 24)} ..
+                          </div>
                         </div>
                       </div>
                     </td>
@@ -140,9 +141,9 @@ const ProductList = () => {
                     </td>
 
                     <td className="px-5 py-5 border-b text-sm text-right">
-                      <p className="text-gray-900 whitespace-no-wrap">
+                      <p className="text-gray-900 whitespace-no-wrap flex">
                         <a href="#edit" className="border-yellow-500 border-2 rounded-sm px-3 py-1 hover:text-white hover:bg-yellow-500">แก้ไข</a> &nbsp;
-                        <a href="#delete" className="border-red-500 border-2 rounded-sm px-3 py-1 hover:text-white hover:bg-red-500">ลบออก</a>
+                        <a href="#delete" className="border-red-500 border-2 rounded-sm px-3 py-1 hover:text-white hover:bg-red-500">ลบ</a>
                       </p>
                     </td>
 

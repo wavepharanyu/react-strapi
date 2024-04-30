@@ -25,6 +25,7 @@ import ReduxCart from './pages/reduxcart/ReduxCart'
 import Register from './pages/register/Register'
 import ProductList from './pages/productList/ProductList'
 import Team from './pages/team/Team'
+import AddProduct from "./pages/productList/AddProduct";
 
 export const router = createBrowserRouter([
   {
@@ -123,6 +124,10 @@ export const router = createBrowserRouter([
       {
         path: '/reactytapi',
         element: <ReactYoutubeAPI />,
+      },
+      {
+        path: '/addproduct',
+        element: <AddProduct />,
       },
     ]
   },
