@@ -16,7 +16,7 @@ const ProductList = () => {
   
   const [products, setProducts] = useState([])
 
-  // console.log(products)
+  console.log(products)
   // console.log(baseURLAPI);
 
   useEffect(() => {
@@ -83,7 +83,7 @@ const ProductList = () => {
                       <div className="flex items-center">
                         <div className="flex-shrink-0 h-10 w-10">
                           {
-                            product.attributes.image ?
+                            product.attributes.image.data ?
                             <img
                                 className="h-10 w-10 rounded-full"
                                 src={ `${baseURL}${product.attributes.image.data.attributes.formats.thumbnail.url}` }
@@ -122,7 +122,7 @@ const ProductList = () => {
 
                     <td className="px-5 py-5 border-b ">
                       <p className="text-gray-900 whitespace-no-wrap">
-                        {product.attributes.category.data.attributes.title}
+                        {product.attributes.category && product.attributes.category.data.attributes.title}
                       </p>
                     </td>
 

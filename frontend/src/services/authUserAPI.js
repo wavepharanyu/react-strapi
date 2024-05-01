@@ -1,4 +1,5 @@
 import axios from "axios";
+import http from '../constants/configAxios'
 
 const baseURL = 'http://localhost:1337/api/'
 
@@ -11,4 +12,8 @@ const authLogin = (data) => {
   })
 }
 
-export { authLogin }
+const getUser = () => {
+  return http.get('users/me')
+}
+
+export { authLogin, getUser }

@@ -1,4 +1,5 @@
 import http from '../constants/configAxios'
+import httpFormdata from '../constants/configAxiosFormData'
 
 //Method Read All Product
 const getAllProduct = () => {
@@ -18,7 +19,7 @@ const getProductById = (id) => {
 
 //Method Add New Product
 const addNewProduct = (data) => {
-    return http.post(`/products`, data);
+    return httpFormdata.post(`/products`, data);
 }
 
 //Method Update Product
@@ -31,11 +32,16 @@ const deleteProduct = (id) => {
     return http.delete(`/products/${id}`);
 }
 
+const uploadFile = () => {
+    return http.post(`/upload`);
+}
+
 export default {
     getAllProduct,
     getAllCategory,
     getProductById,
     addNewProduct,
     updateProduct,
-    deleteProduct
+    deleteProduct,
+    uploadFile
 }
